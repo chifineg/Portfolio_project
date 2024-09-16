@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		    <meta charset="UTF-8">
-		        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-			    <title>Currency Converter</title>
-			        <link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		    <div class="container">
-			            <h1>Currency Converter</h1>
-				            <div class="converter">
-						                <input type="number" id="amount" placeholder="Enter amount">
-								            <div class="currency-selection">
-										                    <select id="fromCurrency">
-													                        <option value="USD">USD</option>
-																                    <option value="EUR">EUR</option>
-																		                        <!-- Add more currencies as needed -->
-																					                </select>
-																							                <select id="toCurrency">
-																										                    <option value="EUR">EUR</option>
-																												                        <option value="USD">USD</option>
-																															                    <!-- Add more currencies as needed -->
-																																	                    </select>
-																																			                </div>
-																																					            <button id="convertButton">Convert</button>
-																																						            </div>
-																																							            <div id="result"></div>
-																																								        </div>
-																																									    <script src="script.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Currency Converter</title>
+    
+    <!-- Link to Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Currency Converter Container -->
+    <div class="container">
+        <h1>Currency Converter</h1>
+
+        <!-- Amount Input -->
+        <input type="number" id="amount" placeholder="Enter amount" />
+
+        <!-- Currency Selection -->
+        <div class="currency-selection">
+            <select id="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+                <!-- Add more currencies as needed -->
+            </select>
+            <select id="toCurrency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="CAD">CAD</option>
+                <!-- Add more currencies as needed -->
+            </select>
+        </div>
+
+        <!-- Convert Button -->
+        <button id="convertButton">Convert</button>
+
+        <!-- Result Display -->
+        <div id="result"></div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
+</body>
 </html>

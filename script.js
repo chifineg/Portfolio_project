@@ -1,5 +1,3 @@
-// script.js simple currency conversion script
-
 // Function to fetch exchange rates and perform the conversion
 async function convertCurrency() {
     // Get input values from the DOM
@@ -13,7 +11,7 @@ async function convertCurrency() {
         return;
     }
 
-   
+    // Linking API key
     const apiKey = 'ed0eb48796238f93e5ee33bc';
     
     // API endpoint for fetching exchange rates based on the selected 'fromCurrency'
@@ -25,24 +23,25 @@ async function convertCurrency() {
         
         // Check if the API request was successful
         if (!response.ok) throw new Error('API Error: Unable to fetch exchange rates.');
-        
-        // Parse the JSON data from the API response
-        const data = await response.json();
-        
-        // Get the conversion rate for the 'toCurrency' from the API response
-        const rate = data.conversion_rates[toCurrency];
-        
-        // Calculate the converted amount
-        const result = (amount * rate).toFixed(2);
 
-        // Display the result in the DOM
-        document.getElementById('result').innerText = `${amount} ${fromCurrency} = ${result} ${toCurrency}`;
+        const data = await response.json();
+
+        // Check if the 'toCurrency' exists in the response data
+        if (!data.conversion_rates[toCurrency]) {
+            throw new Error(`Conversion rate for ${toCurrency} not found.`);
+        }
+
+        // Perform the conversion
+        const conversionRate = data.conversion_rates[toCurrency];
+        const convertedAmount = (amount * conversionRate).toFixed(2);
+
+        // Display the result
+        document.getElementById('result').innerText = `${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
     } catch (error) {
-        // Handle errors and display a user-friendly message
-        console.error("Error fetching exchange rates:", error);
-        document.getElementById('result').innerText = "Error: Unable to fetch exchange rates. Please try again.";
+        // Handle any errors that occur during the API request
+        document.getElementById('result').innerText = error.message;
     }
 }
 
-// Event listener for the Convert button
+// Add event listener for the convert button
 document.getElementById('convertButton').addEventListener('click', convertCurrency);

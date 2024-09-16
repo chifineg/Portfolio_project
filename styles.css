@@ -1,73 +1,120 @@
-/* basic style sheet */
+/* styles.css */
+
+/* Basic global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-	    font-family: 'Arial', sans-serif;
-	        background-color: #f4f7f6;
-		    color: #333;
-		        margin: 0;
-			    padding: 0;
-			        display: flex;
-				    justify-content: center;
-				        align-items: center;
-					    height: 100vh;
-				    }
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7f5a83, #0d324d);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-				    .container {
-					        background-color: white;
-						    padding: 20px;
-						        border-radius: 10px;
-							    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-							        width: 100%;
-								    max-width: 400px;
-								        text-align: center;
-								}
+/* Container for the converter */
+.container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
 
-								h1 {
-									    color: #5d5d5d;
-								    }
+/* On hover, a slight scale to add interaction effect */
+.container:hover {
+    transform: scale(1.02);
+}
 
-								    .converter {
-									        margin: 20px 0;
-									}
+/* Heading styles */
+h1 {
+    color: #0d324d;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
 
-									input {
-										    width: 80%;
-										        padding: 10px;
-											    margin-bottom: 20px;
-											        border: 1px solid #ddd;
-												    border-radius: 5px;
-												        font-size: 16px;
-												}
+/* Styling the input field */
+input[type="number"] {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
 
-												.currency-selection {
-													    margin-bottom: 20px;
-												    }
+/* Focus style for the input field */
+input[type="number"]:focus {
+    border-color: #7f5a83;
+}
 
-												    select {
-													        width: 45%;
-														    padding: 10px;
-														        border: 1px solid #ddd;
-															    border-radius: 5px;
-															        font-size: 16px;
-																    margin: 0 5px;
-															    }
+/* Styling the select dropdowns */
+select {
+    width: 45%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 0 5px;
+    outline: none;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
+}
 
-															    button {
-																        background-color: #28a745;
-																	    color: white;
-																	        padding: 10px 20px;
-																		    border: none;
-																		        border-radius: 5px;
-																			    cursor: pointer;
-																			        font-size: 16px;
-																				    transition: background-color 0.3s ease;
-																			    }
+/* Focus style for the select dropdowns */
+select:focus {
+    border-color: #7f5a83;
+}
 
-																			    button:hover {
-																				        background-color: #218838;
-																				}
+/* Button styling */
+button {
+    background-color: #0d324d;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-																				#result {
-																					    margin-top: 20px;
-																					        font-size: 20px;
-																						    font-weight: bold;
-																					    }
+/* Button hover effect */
+button:hover {
+    background-color: #7f5a83;
+    transform: translateY(-3px);
+}
+
+/* Styling the result output */
+#result {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0d324d;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    input[type="number"], select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

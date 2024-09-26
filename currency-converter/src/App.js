@@ -7,6 +7,7 @@ function App() {
   const [fromCurrency, setFromCurrency] = useState('USD');
   const [toCurrency, setToCurrency] = useState('EUR');
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
 
   // List of African and global currencies
   const currencies = [
@@ -25,6 +26,16 @@ function App() {
 
   // Function to handle currency conversion
   const convertCurrency = async () => {
+    // Clear any previous errors
+    setError('');
+
+    // Check for valid input
+    if (!amount || isNaN(amount) || Number(amount) <= 0) {
+      setError('Please enter a valid positive number for the amount.');
+      setResult('');
+      return;
+    }
+
     const apiKey = 'ed0eb48796238f93e5ee33bc';
     const url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`;
 
@@ -38,7 +49,8 @@ function App() {
       const convertedAmount = (amount * conversionRate).toFixed(2);
       setResult(`${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`);
     } catch (error) {
-      setResult('Error: Could not fetch conversion rate');
+      setError('Error: Could not fetch conversion rate');
+      setResult('');
     }
   };
 
@@ -86,8 +98,11 @@ function App() {
       {/* Convert button */}
       <button onClick={convertCurrency}>Convert</button>
 
+      {/* Error message */}
+      {error && <div className="error-message">{error}</div>}
+
       {/* Display the conversion result */}
-      <div id="result">{result}</div>
+      {result && <div id="result">{result}</div>}
     </div>
   );
 }

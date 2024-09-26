@@ -7,7 +7,6 @@ function App() {
   const [toCurrency, setToCurrency] = useState('EUR');
   const [result, setResult] = useState('');
 
-  // Function to handle currency conversion
   const convertCurrency = async () => {
     const apiKey = 'ed0eb48796238f93e5ee33bc';
     const url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`;
@@ -17,7 +16,6 @@ function App() {
       if (!response.ok) throw new Error('Error fetching exchange rates');
       const data = await response.json();
 
-      // Calculate the conversion
       const conversionRate = data.conversion_rates[toCurrency];
       const convertedAmount = (amount * conversionRate).toFixed(2);
       setResult(`${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`);
@@ -42,12 +40,20 @@ function App() {
           <option value="USD">USD (United States Dollar)</option>
           <option value="EUR">EUR (Euro)</option>
           <option value="GBP">GBP (British Pound)</option>
+          <option value="ZAR">ZAR (South African Rand)</option>
+          <option value="NGN">NGN (Nigerian Naira)</option>
+          <option value="KES">KES (Kenyan Shilling)</option>
+          <option value="GHS">GHS (Ghanaian Cedi)</option>
         </select>
 
         <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
           <option value="USD">USD (United States Dollar)</option>
           <option value="EUR">EUR (Euro)</option>
           <option value="GBP">GBP (British Pound)</option>
+          <option value="ZAR">ZAR (South African Rand)</option>
+          <option value="NGN">NGN (Nigerian Naira)</option>
+          <option value="KES">KES (Kenyan Shilling)</option>
+          <option value="GHS">GHS (Ghanaian Cedi)</option>
         </select>
       </div>
 

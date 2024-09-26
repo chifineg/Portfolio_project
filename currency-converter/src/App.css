@@ -20,7 +20,7 @@ h1 {
 }
 
 input, select {
-  width: 100%;
+  width: calc(50% - 20px);
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -28,7 +28,6 @@ input, select {
 }
 
 button {
-  width: 100%;
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -41,3 +40,30 @@ button:hover {
   background-color: #0056b3;
 }
 
+.currency-selection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.switch-btn {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.switch-btn:hover {
+  background-color: #218838;
+}
+
+#result {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #555;
+}
